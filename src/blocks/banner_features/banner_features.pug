@@ -1,0 +1,10 @@
+include ../features/features
+mixin banner_features()
+    +b.banner_features&attributes(attributes)
+        .wrapper.wrapper--no-padding
+            +e.banner
+                +e.label 30%
+                    b offer
+                    span for woman
+                +e.image(src="assets/img/30p_offer.jpg")
+            +features()

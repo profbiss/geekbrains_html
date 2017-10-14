@@ -1,0 +1,92 @@
+// Make viewport responsive
+// see http://timkadlec.com/2012/10/ie10-snap-mode-and-responsive-design/
+
+@-ms-viewport /* stylelint-disable-line  at-rule-no-vendor-prefix */
+    width device-width
+
+// Suppress the focus outline on elements that cannot be accessed via keyboard.
+// see: https://github.com/suitcss/base
+
+[tabindex='-1']:focus
+    outline none !important
+
+
+// iOS 'clickable elements' fix for role='button'
+// see https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile
+
+button
+[role='button']
+    cursor pointer
+
+
+// Avoid 300ms click delay on touch devices that support the `touch-action` CSS property.
+// see:
+// http://v4-alpha.getbootstrap.com/content/reboot/#click-delay-optimization-for-touch
+// http://caniuse.com/#feat=css-touch-action
+// http://patrickhlauke.github.io/touch/tests/results/#suppressing-300ms-delay
+
+a
+area
+button
+[role='button']
+input
+label
+select
+summary
+textarea
+    touch-action manipulation
+
+// Remove text-shadow in selection highlight:
+// https://twitter.com/miketaylr/status/12228805301
+// These selection rule sets have to be separate.
+// Customize the background color to match your design.
+
+::selection
+    background #b3d4fc
+    text-shadow none
+
+
+// Remove the gap between audio, canvas, iframes,
+// images, videos and the bottom of their containers:
+// https://github.com/h5bp/html5-boilerplate/issues/440
+
+audio
+canvas
+iframe
+img
+svg
+video
+    vertical-align middle
+
+// Remove default fieldset styles.
+
+fieldset
+    border 0
+    margin 0
+    padding 0
+
+
+// Allow only vertical resizing of textareas.
+
+textarea
+    resize vertical
+
+a
+button
+input
+*:focus
+*:hover
+    -webkit-tap-highlight-color rgba(0,0,0,0)
+    // outline none
+
+[data-whatinput="initial"] :focus
+    outline none
+
+[data-whatinput="mouse"] :focus
+    outline none
+
+// [data-whatinput="keyboard"] :focus
+//     outline-color blue
+
+[data-whatinput="touch"] :focus
+    outline none

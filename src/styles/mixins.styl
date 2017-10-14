@@ -1,0 +1,204 @@
+container($max-width = 1000px)
+    max-width $max-width
+    margin-left auto
+    margin-right auto
+    padding-left 20px
+    padding-right 20px
+    position relative
+
+below($maxWidth)
+    $maxWidth = $maxWidth - 1px
+    @media only screen and (max-width: $maxWidth)
+        {block}
+
+above($minWidth)
+    @media only screen and (min-width: $minWidth)
+        {block}
+
+ls(ls = 0)
+    letter-spacing unit(ls/1000, 'em')
+
+object-fit()
+    width 100%
+    height 100%
+    object-fit cover
+    object-position 50% 50%
+    font-family 'object-fit: cover; object-position: 50% 50%'
+
+ellipsis()
+    white-space nowrap
+    text-overflow ellipsis
+    overflow hidden
+
+user-select-none()
+    -webkit-touch-callout none
+    -khtml-user-select none
+    user-select none
+
+// size 10px 20px
+size( values... )
+    if length( values ) == 1
+        width values[ 0 ] || auto
+        height values[ 0 ] || auto
+    else
+        width values[ 0 ] if values[ 0 ] != false
+        height values[ 1 ] if values[ 1 ] != false
+
+placeholder()
+    if selector() == "&"
+        error( "placeholder() must be called from a ruleset!" )
+    &::-webkit-input-placeholder
+        opacity: 1;
+        {block}
+    &:-moz-placeholder
+        opacity: 1;
+        {block}
+    &::-moz-placeholder
+        opacity: 1;
+        {block}
+    &:-ms-input-placeholder
+        opacity: 1;
+        {block}
+    &:input-placeholder
+        opacity: 1;
+        {block}
+
+no-number-spinner()
+    -moz-appearance textfield
+    &::-webkit-inner-spin-button
+    &::-webkit-outer-spin-button
+        -webkit-appearance none
+        margin 0
+        -moz-appearance none
+        appearance none
+
+
+// Set style of selection
+selection( color )
+    ::selection
+        background color
+        {block}
+    ::-moz-selection
+        background color
+        {block}
+    img::selection
+        background transparent
+        {block}
+    img::-moz-selection
+        background transparent
+        {block}
+
+cover()
+    // Apply to container!
+    overflow hidden
+    position relative
+    img
+        display block
+        position absolute
+        top 50%
+        left 50%
+        width auto
+        height auto
+        max-height none
+        max-width none
+        min-height 100%
+        min-width 100%
+        transform translate(-50%, -50%)
+
+// _strip-units
+// remove units of a number
+_strip-units( val )
+    unit( val, "" )
+
+ratio-box( ratio = 1/1 )
+    ratio = _strip-units( ratio )
+
+    overflow hidden
+    position relative
+
+    // The container's height, as a percentage of the
+    // container's width, is set by assigning
+    // padding-top to a pseudo-element.
+    &:before
+        content ''
+        display block
+        height 0
+        padding-top floor((1 / ratio) * 100%, 2)
+
+visuallyhidden()
+    margin -1px
+    padding 0
+    width 1px
+    height 1px
+    overflow hidden
+    clip rect(0 0 0 0)
+    clip rect(0, 0, 0, 0)
+    position absolute
+
+// Clearfix
+cf()
+    &:before
+    &:after
+        display: table;
+        content: "";
+    &:after
+        clear: both;
+    *zoom: 1;
+
+
+// Responsive font-size by calc function
+fs($min-font, $max-font, $min-width = 320px, $max-width=1100px)
+    font-size: $min-font;
+    @media (min-width: $min-width)
+        font-size: s('calc( %s + (%s - %s) * ((100vw - %s) / (%s - %s)) )', $min-font, remove-unit($max-font), remove-unit($min-font), $min-width, remove-unit($max-width), remove-unit($min-width));
+    @media (min-width: $max-width)
+        font-size: $max-font;
+
+
+triangle(width = 10px, height = 10px, direction = 'bottom', color = body-color, negative = transparent)
+
+    // Base triangle styles
+    width 0
+    height 0
+    background 0
+    border-style solid
+
+    // Styles for each direction
+    directions = {
+        top: {
+            border-width: 0 (width * .5) height (width * .5),
+            border-color: negative negative color negative
+        },
+        topRight: {
+            border-width: 0 width height 0,
+            border-color: negative color negative negative
+        },
+        right: {
+            border-width: (height * .5) 0 (height *.5) width,
+            border-color: negative negative negative color
+        },
+        bottomRight: {
+            border-width: 0 0 height width,
+            border-color: negative negative color negative
+        },
+        bottom: {
+            border-width: height (width * .5) 0 (width * .5),
+            border-color: color negative negative negative
+        },
+        bottomLeft: {
+            border-width: width 0 0 height,
+            border-color: negative negative negative color
+        },
+        left: {
+            border-width: (height * .5) width (height * .5) 0,
+            border-color: negative color negative negative
+        },
+        topLeft: {
+            border-width: height width 0 0,
+            border-color: color negative negative negative
+        }
+    }
+
+    // Mixin styles for passed direction
+    styles = directions[direction]
+    {styles}

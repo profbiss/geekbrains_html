@@ -1,0 +1,29 @@
+- var page = "home"
+
+//- include ../sprite-svg/sprite-svg
+
+include ../blocks/head/head
+include ../blocks/header/header
+include ../blocks/footer/footer
+include ../blocks/scripts/scripts
+include ../blocks/jumbotron/jumbotron
+include ../blocks/special_offers/special_offers
+include ../blocks/top_sale/top_sale
+include ../blocks/banner_features/banner_features
+
+doctype html
+
+html(lang="ru")
+
+    +head("Главная страница")
+
+    body
+        +header()
+        +jumbotron()
+        +special_offers()
+        +top_sale()
+        +banner_features()
+        +footer()
+        
+        // end popups
+        +scripts()

@@ -1,0 +1,35 @@
+- function cacheReset(url){ return url + '?' + Date.now(); }
+include ../../../node_modules/bemto.pug/bemto
+-
+    set_bemto_settings({
+        modifier: '--',
+        flat_elements: true,
+        output_modifier: '--',
+        prefix: {
+            '': '',
+            'js-': true,
+            'is-': 'is-',
+            'global-': '',
+            'nope-': false,
+            'sc-': 'shortcut-'
+        }
+    })
+mixin head(title)
+    head
+        meta(charset="utf-8")
+        title= title
+        meta(name="description" content="")
+        meta(name="keywords" content="")
+
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        
+        link(rel="stylesheet" href=cacheReset("assets/css/style.min.css"))
+
+        //- link(rel="apple-touch-icon", sizes="180x180", href="assets/img/favicons/apple-touch-icon.png")
+        //- link(rel="icon", type="image/png", href="assets/img/favicons/favicon-32x32.png", sizes="32x32")
+        //- link(rel="icon", type="image/png", href="assets/img/favicons/favicon-16x16.png", sizes="16x16")
+        //- link(rel="manifest", href="assets/img/favicons/manifest.json")
+        //- link(rel="shortcut icon", href="assets/img/favicons/favicon.ico")
+        //- meta(name="msapplication-config", content="assets/img/favicons/browserconfig.xml")
+        //- meta(name="theme-color", content="#ffffff")

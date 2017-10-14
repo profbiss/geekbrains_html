@@ -1,0 +1,13 @@
+mixin search_panel()
+    +b.FORM.search_panel(method="post", action="/catalog.html")
+        .ui-front
+            +e.SELECT
+                +e.OPTGROUP(label="Man")
+                    each val in ['Home', 'Man', 'Women', 'Kids', 'Accoseriese', 'Featured', 'Hot deals']
+                        +e.OPTION=val
+                +e.OPTGROUP(label="Women")
+                    each val in ['Home', 'Man', 'Women', 'Kids', 'Accoseriese', 'Featured', 'Hot deals']
+                        +e.OPTION=val
+        +e.INPUT.input(placeholder="Search for item")
+        +e.BUTTON(type="submit").button.fa.fa-search
+        

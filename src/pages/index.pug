@@ -1,0 +1,66 @@
+- var base = (env === "production") ? "" : ""
+
+mixin page(filename, title, ready = true)
+    - var temp = (!ready) ? "page__text--work" : ""
+    p.page__text(class=temp)
+        if env == "production"
+            | [
+            a(href="https://validator.w3.org/nu/?doc=" + base + filename, target="_blank") v
+            | ] 
+        a(href=filename, target="_blank")= title
+
+doctype html
+
+html(lang="ru")
+
+    head
+        meta(charset="utf-8")
+        title Проект | Список страниц
+
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
+
+        //- link(rel="apple-touch-icon", sizes="180x180", href="assets/img/favicons/apple-touch-icon.png")
+        //- link(rel="icon", type="image/png", href="assets/img/favicons/favicon-32x32.png", sizes="32x32")
+        //- link(rel="icon", type="image/png", href="assets/img/favicons/favicon-16x16.png", sizes="16x16")
+        //- link(rel="manifest", href="assets/img/favicons/manifest.json")
+        //- link(rel="shortcut icon", href="assets/img/favicons/favicon.ico")
+        //- meta(name="msapplication-config", content="assets/img/favicons/browserconfig.xml")
+        //- meta(name="theme-color", content="#ffffff")
+
+        style.
+            html {box-sizing: border-box; height: 100%; margin: 0;}
+            *, *:before, *:after {box-sizing: inherit;}
+            .page {min-width: 240px; color: #444; font-size: 18px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';font-weight: normal; line-height: 1.2; background-color: #fff; padding: 0; margin: 0;}
+            .page__in {display: block; width: 100%; max-width: 1000px; margin: 0 auto; padding: 40px 20px;}
+            .page__title {font-size: 26px; padding: 0 0 20px; border-bottom: 1px solid #999; margin: 0 0 30px;}
+            .page__title-2 {font-size: 20px; margin: 0 0 15px;}
+            .page__title-3 {font-size: 18px; font-weight: normal; margin: 0 0 20px;}
+            .page__note {font-size: 16px; margin: 0 0 40px;}
+            .page__text {margin: 0 0 15px}
+            .page__text--work {opacity: .5}
+            .page__text a {color: #036; text-decoration: underline;}
+            .page__text a:hover {color: #c00;  text-decoration: none;}
+            .page__block {padding-left: 20px; padding-bottom: 20px;}
+            .page__row {width: 100%; display: flex; flex-flow: row wrap;}
+            .page__col {flex: 1 1 100%;}
+            @media only screen and (min-width: 700px) {.page__col {flex: 1 1 33.3%;}}
+
+    body.page
+        .page__in
+
+            h1.page__title Проект "Проект" (project)
+
+            p.page__note Бледным цветом помечены страницы, которые пока собраны не полностью или по ним еще могут быть изменения в разметке - их лучше пока не брать в "натяжку".
+
+            .page__row
+                .page__col
+                    +page("home.html", "Главная страница", false)
+                    +page("product.html", "Каталог", false)
+                    //- h2.page__title-2 Авторизация/Регистрация
+                    //- .page__block
+                    //-     +page("auth-login.html", "Вход", true)
+                    //-     +page("auth-registration.html", "Регистрация", true)
+                    //-     +page("auth-recovery.html", "Восстановление пароля", true)
+                    //-     +page("auth-confirmation.html", "Код подтверждения", true)
+                    //- 

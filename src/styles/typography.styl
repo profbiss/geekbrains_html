@@ -1,0 +1,151 @@
+h1
+h2
+h3
+h4
+h5
+h6
+    font-family $font-family
+    font-size 2em
+    font-weight 700
+    line-height 1.2
+    margin 0 0 20px
+
+h1
+    font-size $font-size-h1
+
+h2
+    font-size $font-size-h2
+
+h3
+    font-size $font-size-h3
+
+h4
+    font-size $font-size-h4
+
+h5
+    font-size $font-size-h5
+
+h6
+    font-size $font-size-h6
+
+
+p
+ul
+ol
+dl
+blockquote
+pre
+address
+figure
+table
+    margin 0 0 20px
+
+
+p
+    color $color-text
+    font-family $font-family
+    font-size 18px
+    font-weight 500
+    line-height 1.45
+
+a
+    color $color-link
+    text-decoration none
+    transition all 0.2s ease
+    &:hover
+        //color $color-hover
+        text-decoration underline
+
+img
+    display inline-block
+    max-width 100%
+    height auto
+    border 0
+
+i
+em
+    font-style italic
+
+b
+strong
+    font-weight 700
+
+ol
+ul
+    list-style-position inside
+    padding-left 2em
+
+ul
+    list-style-type disc
+
+ol
+    list-style-type decimal
+
+dt
+dd
+    line-height $line-height
+
+dt
+    font-weight 700
+
+dd
+    margin-left 0
+
+
+pre
+code
+    font-family "Consolas", "Courier New", "Nimbus Mono L", monospace
+    font-size 16px
+    line-height 1.6
+
+    overflow hidden
+    white-space pre-wrap
+    word-wrap break-word
+    tab-size 4
+
+pre
+    padding 1em
+    background #eee
+    border-radius 3px
+
+q
+    quotes "«" "»"
+    font-style italic
+
+    q
+        quotes "„" "“"
+        font-style italic
+
+blockquote
+    padding ($line-height / 2)*1em
+    margin 0 0 $line-height*1em
+
+    p
+    ul
+    ol
+        &:last-child
+            margin-bottom: 0
+        &:first-child
+            margin-top 0
+
+    footer
+    small
+        display block
+        font-size 80%
+        line-height $line-height
+
+        &:before
+            content '\2014 \00A0' //- em dash, nbsp
+
+hr
+    display block
+    height 1px
+    border 0
+    border-top 1px solid #ccc
+    margin 1em 0
+    padding 0
+
+
+table
+    width 100%
+

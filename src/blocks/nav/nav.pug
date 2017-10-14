@@ -1,0 +1,7 @@
+mixin nav()
+    +b.NAV.nav_in_header
+        .wrapper
+            ul
+                each val in ['Home', 'Man', 'Women', 'Kids', 'Accoseriese', 'Featured', 'Hot deals']
+                    li
+                        +e.A.item= val

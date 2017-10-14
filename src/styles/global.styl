@@ -1,0 +1,50 @@
+html
+    box-sizing border-box
+    margin 0
+    font-size 16px
+    -ms-overflow-style scrollbar
+    -ms-text-size-adjust 100%
+    min-width 320px
+    height 100%
+
+*
+*:before
+*:after
+    box-sizing inherit
+
+
+body
+    color $color-text
+    font-family $font-family
+    font-size $font-size
+    line-height $line-height
+    background-color $color-body
+    height 100%
+    position relative
+    -webkit-font-smoothing subpixel-antialiased !important
+    -webkit-backface-visibility hidden
+    -moz-backface-visibility hidden
+    -ms-backface-visibility hidden
+    &:after
+        display table
+        clear both
+        content ""
+    > *
+        min-width 1140px
+        margin 0 auto
+
+.hidden
+    display none
+
+.wrapper
+    display: flex;
+    width: 1140px;
+    margin: 0 auto;
+    height 100%
+    padding: 0 10px
+    &--no-padding
+        padding: 0
+
+input:focus, select:focus, button:focus
+    outline: none;
+

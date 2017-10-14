@@ -1,0 +1,17 @@
+
+include ../search_panel/search_panel
+include ../cart_in_header/cart_in_header
+include ../nav/nav
+
+mixin header()
+    // begin header
+    +b.HEADER.header&attributes(attributes)
+        .wrapper
+            +b.header__logo(href=page=="home"?false:"/")
+                +e.img(src="assets/img/header__logo.png")
+                span Bran
+                    b d
+            +search_panel()
+            +cart_in_header()
+    +nav()
+    // end header

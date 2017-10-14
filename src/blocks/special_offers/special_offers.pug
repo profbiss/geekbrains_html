@@ -1,0 +1,23 @@
+mixin special_offers()
+    +b.special_offers&attributes(attributes)
+        .wrapper
+            +e.item(href="#")
+                .label
+                    span Hot deal
+                    | For men
+                img(src="assets/img/man.jpg")
+            +e.item(href="#")
+                .label
+                    span Luxirous & trendy
+                    | Accesories
+                img(src="assets/img/wallet.jpg")
+            +e.item(href="#")
+                .label
+                    span 30% offer
+                    | Women
+                img(src="assets/img/women.jpg")
+            +e.item(href="#")
+                .label
+                    span New arrivals
+                    | For kids
+                img(src="assets/img/child.jpg")

@@ -1,0 +1,18 @@
+mixin cart_in_header()
+    +b.cart_in_header&attributes(attributes)
+        +e.icon
+        +e.button(href="#") My account
+            i.fa.fa-sort-desc
+        +e.dropdown_cart
+            +e.products
+                +b.product_in_header
+                    +e.image
+                    +e.name
+                    +e.stars
+                    +e.cnt
+                    +e.delete
+            +e.sum
+            +e.buttons
+                +e.checkout
+                +e.go_to_cart
+        

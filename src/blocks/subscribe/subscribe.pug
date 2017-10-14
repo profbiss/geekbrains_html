@@ -1,0 +1,16 @@
+mixin subscribe()
+    +b.subscribe&attributes(attributes)
+        .wrapper
+            +e.left
+                +e.avatar(src="./assets/img/subscribe_women.png")
+                +e.quote
+                    +e.SPAN.quote__text Vestibulum quis porttitor dui! Quisque viverra nunc mi, a pulvinar purus condimentum a. Aliquam condimentum mattis neque sed pretium
+                    +e.SPAN.quote__name Bin Burhan
+                    +e.SPAN.quote__ph Dhaka, Bd
+            +e.right
+                +e.text
+                    b Subscribe
+                    | for our newletter and promotion
+                +e.FORM.form(method="post", action="/subscribe.html")
+                    +e.INPUT.email(type="text", name="email", placeholder="Enter Your Email")
+                    +e.INPUT.submit(type="submit", value="Subscribe")

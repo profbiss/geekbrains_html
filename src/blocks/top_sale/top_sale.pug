@@ -1,0 +1,14 @@
+include ../catalog_item/catalog_item
+mixin top_sale()
+    +b.ARTICLE.top_sale&attributes(attributes)
+        .wrapper
+            +e.HEADER.header
+                +e.H3 Fetured Items
+                +e Shop for items based on what we featured in this week
+            +e.SECTION.body
+                - var n = 1;
+                while n <= 8
+                    +catalog_item(n++)
+            +e.FOOTER.bottom
+                +e.browse_all(href="#") Browse All Product
+                    i.fa.fa-long-arrow-right
