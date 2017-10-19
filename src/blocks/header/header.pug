@@ -7,7 +7,7 @@ mixin header()
     // begin header
     +b.HEADER.header&attributes(attributes)
         .wrapper
-            +b.header__logo(href=page=="home"?false:"/home.html")
+            +b.header__logo(href=page=="home"?false:"home.html")
                 +e.img(src="assets/img/header__logo.png")
                 span Bran
                     b d
