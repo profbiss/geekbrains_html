@@ -31,9 +31,14 @@ gulp.task('commit', function(){
         })));
 });
 
-gulp.task('push', function(){
+gulp.task('push', function(done){
     if(isProduction)
-        git.push('origin');
+        git.push('origin','master', function (err) {
+            if (err) throw err;
+            done();
+        });
+    else
+        done();
 });
 gulp.task('subtree', function () {
     return gulp.src('dist')
