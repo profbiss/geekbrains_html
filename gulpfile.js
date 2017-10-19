@@ -7,7 +7,7 @@ var emitty          = require('emitty').setup('src', 'pug', {makeVinylFile: true
 var imgRetina       = require('gulp-img-retina');
 var cssRetina       = require('gulp-css-retina');
 var subtree         = require('gulp-subtree');
-var git         = require('gulp-git');
+var git             = require('gulp-git');
 
 var isProduction    = !!plugins.util.env.production;
 var env             = isProduction ? "production" : "";
@@ -32,8 +32,8 @@ gulp.task('commit', function(){
 });
 
 gulp.task('push', function(){
-    return gulp.src('./*')
-        .pipe(plugins.if(isProduction, git.push('origin')));
+    if(isProduction)
+        git_push('origin');
 });
 gulp.task('subtree', function () {
     return gulp.src('dist')
