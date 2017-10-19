@@ -6,6 +6,8 @@ var browserSync     = require('browser-sync').create();
 var emitty          = require('emitty').setup('src', 'pug', {makeVinylFile: true});
 var imgRetina       = require('gulp-img-retina');
 var cssRetina       = require('gulp-css-retina');
+var subtree         = require('gulp-subtree');
+var git         = require('gulp-git');
 
 var isProduction    = !!plugins.util.env.production;
 var env             = isProduction ? "production" : "";
@@ -18,6 +20,24 @@ var plumberOptions  = {errorHandler: plugins.notify.onError("Error: <%= error.me
 
 gulp.task('clean', function (cb) {
     plugins.rimraf("./dist", cb);
+});
+
+
+gulp.task('commit', function(){
+    return gulp.src('./*')
+        .pipe(plugins.if(isProduction, git.commit(undefined, {
+            args: '-m "Update" -a',
+            disableMessageRequirement: true
+        })));
+});
+
+gulp.task('push', function(){
+    return gulp.src('./*')
+        .pipe(plugins.if(isProduction, git.push('origin')));
+});
+gulp.task('subtree', function () {
+    return gulp.src('dist')
+        .pipe(plugins.if(isProduction, subtree()));
 });
 
 // JADE, HTML PAGES
@@ -250,7 +270,10 @@ gulp.task('build', gulp.series(
     'sprite:svg',
     gulp.parallel('images', 'favicons', 'fonts', 'jquery','scripts'),
     'styles',
-    'pages'
+    'pages',
+    'commit',
+    'push',
+    'subtree'
 ));
 
 gulp.task('default', gulp.series('build', 'watch'));
