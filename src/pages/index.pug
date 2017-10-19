@@ -1,4 +1,4 @@
-- var base = (env === "production") ? "" : ""
+- var base = (env === "production") ? "https://profbiss.github.io/geekbrains_html/" : ""
 
 mixin page(filename, title, ready = true)
     - var temp = (!ready) ? "page__text--work" : ""
@@ -6,7 +6,7 @@ mixin page(filename, title, ready = true)
         if env == "production"
             | [
             a(href="https://validator.w3.org/nu/?doc=" + base + filename, target="_blank") v
-            | ] 
+            | ]
         a(href=filename, target="_blank")= title
 
 doctype html
@@ -48,9 +48,8 @@ html(lang="ru")
 
     body.page
         .page__in
-
             h1.page__title Проект "Проект"
-                a(href="https://profbiss.github.io/geekbrains_html/") ( Git Pages )
+                a(href="https://github.com/profbiss/geekbrains_html") ( GitHub )
 
             p.page__note Бледным цветом помечены страницы, которые пока собраны не полностью или по ним еще могут быть изменения в разметке - их лучше пока не брать в "натяжку".
 

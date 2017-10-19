@@ -4,4 +4,4 @@ mixin nav()
             ul
                 each val in ['Home', 'Man', 'Women', 'Kids', 'Accoseriese', 'Featured', 'Hot deals']
                     li
-                        +e.A.item= val
+                        +e.A.item(href="/product.html")= val

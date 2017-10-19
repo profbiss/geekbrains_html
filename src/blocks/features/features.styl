@@ -2,12 +2,29 @@
     width: 373px
     display: flex
     flex-direction: column
+    background-color: #222224
+    &--horizontal
+        width: 100%
+        margin: 0
+        flex-direction: row
+        height: 340px
+        text-align: center
     &__feature
         margin: auto 30px
         flex-direction: row
         display: flex
+        ^[0]--horizontal &
+            display: block;
+            width: 370px
+            margin: auto 0
+        ^[0]--horizontal &:first-child
+            margin-left: auto
+        ^[0]--horizontal &:last-child
+            margin-right: auto
     &__icon
         margin: 0 30px auto 0
+        ^[0]--horizontal &
+            margin: 0 0 20px
     &__block
         b
             color: #fbfbfb

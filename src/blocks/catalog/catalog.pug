@@ -1,0 +1,104 @@
+include ../catalog_item/catalog_item
+include ../page_header/page_header
+mixin catalog()
+    +b.ARTICLE.catalog
+        +page_header()
+        .wrapper
+            +e.sidebar
+                +e.NAV.menu
+                    input(id="menu1", type="checkbox", checked="checked")
+                    label(for="menu1") Category
+                    ul
+                        li
+                            a(href="#") Accessories
+                        li
+                            a(href="#") Bags
+                        li
+                            a(href="#") Denim
+                        li
+                            a(href="#") Hoodies & Sweatshirts
+                        li
+                            a(href="#") Jackets & Coats
+                        li
+                            a(href="#") Pants
+                        li
+                            a(href="#") Polos
+                        li
+                            a(href="#") Shirts
+                        li
+                            a(href="#") Shoes
+                        li
+                            a(href="#") Shorts
+                        li
+                            a(href="#") Sweaters & Knits
+                        li
+                            a(href="#") T-Shirts
+                        li
+                            a(href="#") Tanks
+                    input(id="menu2", type="checkbox")
+                    label(for="menu2") Brand
+                    ul
+                        li
+                            a(href="#") Accessories
+                        li
+                            a(href="#") Bags
+                        li
+                            a(href="#") Denim
+                        li
+                            a(href="#") Hoodies & Sweatshirts
+                        li
+                            a(href="#") Jackets & Coats
+                        li
+                            a(href="#") Pants
+                        li
+                            a(href="#") Polos
+                        li
+                            a(href="#") Shirts
+                        li
+                            a(href="#") Shoes
+                        li
+                            a(href="#") Shorts
+                        li
+                            a(href="#") Sweaters & Knits
+                        li
+                            a(href="#") T-Shirts
+                        li
+                            a(href="#") Tanks
+                    input(id="menu3", type="checkbox")
+                    label(for="menu3") Designer
+                    ul
+                        li
+                            a(href="#") Accessories
+                        li
+                            a(href="#") Bags
+                        li
+                            a(href="#") Denim
+                        li
+                            a(href="#") Hoodies & Sweatshirts
+                        li
+                            a(href="#") Jackets & Coats
+                        li
+                            a(href="#") Pants
+                        li
+                            a(href="#") Polos
+                        li
+                            a(href="#") Shirts
+                        li
+                            a(href="#") Shoes
+                        li
+                            a(href="#") Shorts
+                        li
+                            a(href="#") Sweaters & Knits
+                        li
+                            a(href="#") T-Shirts
+                        li
+                            a(href="#") Tanks
+            +e.content
+                +e.filters
+                +e.SECTION.items
+                    - var n = 1;
+                        while n <= 9
+                            +catalog_item(n++,"Image-")
+                +e.FOOTER.footer
+                    +e.pagger
+                    +e.button View All

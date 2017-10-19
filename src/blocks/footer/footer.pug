@@ -1,8 +1,15 @@
 include ../subscribe/subscribe
+include ../footer_text/footer_text
+include ../footer_menu/footer_menu
+include ../copyright/copyright
 mixin footer()
     // begin footer
     +b.FOOTER.footer&attributes(attributes)
         +subscribe()
+        .wrapper
+            +footer_text()
+            +footer_menu()
+        +copyright()
     // end footer
 
 

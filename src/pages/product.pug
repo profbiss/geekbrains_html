@@ -6,7 +6,8 @@ include ../blocks/head/head
 include ../blocks/header/header
 include ../blocks/footer/footer
 include ../blocks/scripts/scripts
-include ../blocks/jumbotron/jumbotron
+include ../blocks/features/features
+include ../blocks/catalog/catalog
 
 doctype html
 
@@ -16,12 +17,7 @@ html(lang="ru")
 
     body
         +header()
-        +jumbotron()
-        +b.content
-            +e.container
-
-        // end content
+        +catalog()
+        +features().--horizontal
         +footer()
-        
-        // end popups
         +scripts()

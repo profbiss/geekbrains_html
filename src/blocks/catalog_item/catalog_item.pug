@@ -1,8 +1,8 @@
-mixin catalog_item(n)
+mixin catalog_item(n,pref)
     +b.catalog_item&attributes(attributes)
         +e.link(href="#")
             +e.DIV.overlay
-                +e.image(src="assets/img/item"+n+".jpg")
+                +e.image(src="assets/img/"+pref+n+".jpg")
                 +e.SPAN.add_to_cart Add to cart
             +e.SPAN.name Mango people t-shirt #{n}
             +e.SPAN.price $52.00

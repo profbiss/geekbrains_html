@@ -1,0 +1,48 @@
+.catalog
+    &__sidebar
+        width: 240px
+        padding-right: 30px
+    &__content
+        width: 840px
+    &__menu
+        display: flex
+        margin: 0 auto 0 0
+        flex-direction: column
+        label
+            color:  #ef5b70
+            font-size: 14px
+            font-weight: 700
+            text-transform: uppercase
+            border-left: 3px solid #ef5b70
+            line-height: 37px
+            padding-left: 10px
+            margin-bottom: 15px
+            border-bottom 1px solid #ebebeb
+            position relative
+            &:after
+                content "\f0de"
+                position: absolute
+                right: 10px
+                color #6f6e6e
+                font-family: FontAwesome
+                top: 5px
+        ul
+            list-style none
+            display none
+            padding-left: 15px
+            li a
+                color:  #6f6e6e
+                line-height 33px
+        [type="checkbox"]
+            display none
+        [type="checkbox"]:checked + label:after
+            content "\f0dd"
+            color #ef5b70
+            top: 0
+        [type="checkbox"]:checked + label + ul
+            display block
+    &__items
+        display: flex
+        flex-wrap: wrap
+        &> *:nth-child(3n+3)
+            margin-right: 0
