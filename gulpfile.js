@@ -33,7 +33,7 @@ gulp.task('commit', function(){
 
 gulp.task('push', function(){
     if(isProduction)
-        git_push('origin');
+        git.push('origin');
 });
 gulp.task('subtree', function () {
     return gulp.src('dist')
