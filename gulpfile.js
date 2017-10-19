@@ -6,8 +6,8 @@ var browserSync     = require('browser-sync').create();
 var emitty          = require('emitty').setup('src', 'pug', {makeVinylFile: true});
 var imgRetina       = require('gulp-img-retina');
 var cssRetina       = require('gulp-css-retina');
-var subtree         = require('gulp-subtree');
 var git             = require('gulp-git');
+var subtree         = require('gulp-subtree-only');
 
 var isProduction    = !!plugins.util.env.production;
 var env             = isProduction ? "production" : "";
