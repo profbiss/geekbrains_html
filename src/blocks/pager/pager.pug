@@ -1,0 +1,12 @@
+mixin pager()
+    +b.pager&attributes(attributes)
+        +e.item.--left(href="#")
+        +e.item.--active(href="#") 1
+        +e.item(href="#") 2
+        +e.item(href="#") 3
+        +e.item(href="#") 4
+        +e.item(href="#") 5
+        +e.item(href="#") 6
+        +e.item.--dot(href="#")
+        +e.item(href="#") 20
+        +e.item.--right(href="#")

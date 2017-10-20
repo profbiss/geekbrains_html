@@ -1,0 +1,30 @@
+$pager_height = 44px
+.pager
+    border-radius: 3px
+    border-style: solid
+    border-width: 1px
+    border-color:  #ebebeb
+    box-sizing: border-box
+    background-color:  #fff
+    height: $pager_height
+    display: flex
+    flex-direction: row
+    &__item
+        width: 26px
+        line-height: $pager_height
+        text-align: center
+        font-size: 16px
+        font-weight: 400
+        color:  #c4c4c4;
+        &:hover, &--active
+            text-decoration none
+            color #ef5b70
+        &:before
+            font: normal normal normal 20px/1 FontAwesome;
+            line-height: $pager_height
+        &--dot:before
+            content: "..."
+        &--left:before
+            content: "\f104"
+        &--right:before
+            content: "\f105"

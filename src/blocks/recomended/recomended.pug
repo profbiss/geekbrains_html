@@ -1,0 +1,10 @@
+include ../catalog_item/catalog_item
+mixin recomended()
+    +b.ARTICLE.recomended&attributes(attributes)
+        .wrapper
+            +e.HEADER.header
+                +e.H3 You may like also
+            +e.SECTION.body
+                - var n = 1;
+                while n <= 4
+                    +catalog_item(n++,"item")
