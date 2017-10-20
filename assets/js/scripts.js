@@ -416,5 +416,16 @@ $(document).ready(function() {
     $( ".search_panel select" ).selectmenu().selectmenu("menuWidget").addClass("search_panel__select_list_items");
     $( ".search_panel select" ).selectmenu().selectmenu("widget").addClass("search_panel__select")
         .find(".ui-selectmenu-icon").addClass("fa fa-sort-desc");
+    (function(){
+        $( ".filter_slider__select" ).slider({
+            range: true,
+            min: 0,
+            max: 500,
+            values: [ 75, 300 ],
+            slide: function( event, ui ) {
+                $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+            }
+        });
+    }());
 
 });
