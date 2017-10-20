@@ -1,5 +1,7 @@
 include ../catalog_item/catalog_item
 include ../page_header/page_header
+include ../pager/pager
+include ../slider/slider
 mixin catalog()
     +b.ARTICLE.catalog
         +page_header()
@@ -95,10 +97,57 @@ mixin catalog()
                             a(href="#") Tanks
             +e.content
                 +e.filters
+                    +b.filter
+                        +e.title Trending now
+                        +e.body
+                            +e.link(href="#") Bohemian
+                            +e.link(href="#") Floral
+                            +e.link(href="#") Lace
+                            +e.link(href="#") Lace
+                            +e.link(href="#") Floral
+                            +e.link(href="#") Bohemian
+                    +b.filter
+                        +e.title Size
+                        +e.body.--column
+                            +e.LABEL.item
+                                input(type="checkbox")
+                                | XXS
+                            +e.LABEL.item
+                                input(type="checkbox")
+                                | XS
+                            +e.LABEL.item
+                                input(type="checkbox")
+                                | S
+                            +e.LABEL.item
+                                input(type="checkbox")
+                                | M
+                            +e.LABEL.item
+                                input(type="checkbox")
+                                | L
+                            +e.LABEL.item
+                                input(type="checkbox")
+                                | XL
+                            +e.LABEL.item
+                                input(type="checkbox")
+                                | XXL
+                    +b.filter
+                        +e.title Price
+                        +e.body
+                            +slider()
+
+                +e.sorts
+                    +e.sort_name Sort by
+                    +e.SELECT
+                        option Name
+                        option Price
+                    +e.sort_name Show
+                    +e.SELECT
+                        option 09
+                        option 18
                 +e.SECTION.items
                     - var n = 1;
                         while n <= 9
                             +catalog_item(n++,"Image-")
                 +e.FOOTER.footer
-                    +e.pagger
-                    +e.button View All
+                    +pager()
+                    +e.button_view_all(href="#") View All

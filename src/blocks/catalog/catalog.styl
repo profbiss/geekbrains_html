@@ -1,9 +1,82 @@
 .catalog
     &__sidebar
-        width: 240px
+        width: 280px
         padding-right: 30px
     &__content
         width: 840px
+    &__filters
+        display flex
+        & .filter
+            width 30%
+            margin 0 auto
+            &:first-child
+                margin-left 0
+            &:last-child
+                margin-right 0
+            &__title
+                color:  #6f6e6e
+                font-size: 14px
+                font-weight: 700
+                text-transform uppercase
+            &__body
+                display: flex
+                flex-wrap: wrap
+                padding-right: 20px
+                margin-top 20px
+                &--column
+                    flex-direction: column
+                    height: 40px
+            &__link
+                color:  #6f6e6e
+                font-size: 14px
+                font-weight: 400
+                margin-right: 23px
+                position relative
+                &:after
+                    margin-left 10px
+                    content "|"
+                    position absolute
+                &:nth-child(3n+3):after
+                    display none
+            &__item
+                input[type="checkbox"]
+                    margin-right: 10px;
+                    &:after, &:before
+                        content: " "
+                        display: block
+                        width: 15px
+                        height: 15px
+                        position: absolute
+                        background: #fff
+                        border: 1px solid #ccc
+                    &:checked:after
+                        font: normal normal normal 11px/1 FontAwesome
+                        padding: 1px 1px
+                        content "\f00c"
+    &__sorts
+        background-color:  #f3f3f3
+        width 100%
+        height: 50px
+        margin-top 30px
+        display: flex
+        select
+            color: #6f6e6e
+            height: 30px
+            margin: auto 0
+            border: 1px solid #ebebeb
+            border-left: 0
+            padding: 0 20px
+    &__sort_name
+        border-style: solid
+        border-width: 1px
+        border-color:  #ebebeb
+        box-sizing: border-box
+        background-color:  #fff
+        height: 30px
+        width: 62px
+        margin: auto 0 auto 10px
+        padding: 5px
+        color: #6f6e6e
     &__menu
         display: flex
         margin: 0 auto 0 0
@@ -44,5 +117,24 @@
     &__items
         display: flex
         flex-wrap: wrap
+        margin-top 40px
         &> *:nth-child(3n+3)
             margin-right: 0
+    &__footer
+        display: flex
+        flex-direction: row
+    &__button_view_all
+        border-radius: 3px
+        border: 1px solid #ef5b70
+        background-color:  #fff
+        width: 150px
+        height: 44px
+        padding: 13px 0
+        text-align: center
+        color:  #ef5b70
+        font-size: 16px
+        font-weight: 300
+        margin: 0 0 0 auto
+        line-height: 16px
+        &:hover
+            text-decoration none

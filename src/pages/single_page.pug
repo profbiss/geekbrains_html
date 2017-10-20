@@ -1,0 +1,23 @@
+- var page = "product"
+
+//- include ../sprite-svg/sprite-svg
+
+include ../blocks/head/head
+include ../blocks/header/header
+include ../blocks/footer/footer
+include ../blocks/scripts/scripts
+include ../blocks/recomended/recomended
+include ../blocks/product/product
+doctype html
+
+html(lang="ru")
+
+    +head("Каталог")
+
+    body
+        +header()
+        +product()
+        +recomended()
+
+        +footer()
+        +scripts()
